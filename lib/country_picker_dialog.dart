@@ -108,17 +108,11 @@ class _CountryPickerDialogState extends State<CountryPickerDialog> {
               padding:
                   widget.style?.searchFieldPadding ?? const EdgeInsets.all(0),
               child: TextField(
-                cursorColor: Colors.grey,
+                cursorColor: widget.style?.searchFieldCursorColor,
                 decoration: widget.style?.searchFieldInputDecoration ??
                     InputDecoration(
                       suffixIcon: const Icon(Icons.search, color: Colors.grey,),
                       labelText: widget.searchText,
-                      enabledBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey), // Unfocused underline color
-                      ),
-                      focusedBorder: const UnderlineInputBorder(
-                        borderSide: BorderSide(color: Colors.grey), // Focused underline color
-                      ),
                     ),
                 onChanged: (value) {
                   _filteredCountries = widget.countryList.stringSearch(value)
